@@ -8,6 +8,7 @@ const store = createStore({
   state() {
     return {
       counter: 0,
+      isLoggedIn: false,
     };
   },
   mutations: {
@@ -17,6 +18,9 @@ const store = createStore({
     increase(state, payload) {
       state.counter = state.counter + payload.value;
     },
+    setAuth(state, payload){
+        state.isLoggedIn = payload.isAuth
+    }
   },
   actions: {
     increment(context) {
@@ -24,11 +28,22 @@ const store = createStore({
         context.commit('increment');
       }, 2000);
     },
-    increase(context, payload){
-        context.commit('increase', payload)
+    increase(context, payload) {
+      context.commit('increase', payload);
+
+    },
+    login(context){
+        console.log("Login Basildi");
+        context.commit('setAuth', {isAuth: true})
+    },
+    logout(context){
+        context.commit('setAuth', {isAuth: false})
     }
   },
   getters: {
+    getIsAuth(state) {
+      return state.isLoggedIn;
+    },
     finalCounter(state) {
       return state.counter * 2;
     },
