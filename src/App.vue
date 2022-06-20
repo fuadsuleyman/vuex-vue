@@ -35,7 +35,7 @@ export default {
     // addOne() {
     //   this.$store.dispatch('increment');
     // },
-    ...mapActions(['increment']),
+    ...mapActions('numbers',['increment']),
   },
 };
 </script>
