@@ -1,6 +1,7 @@
 <template>
   <base-container title="Vuex">
     <the-counter-vue></the-counter-vue>
+    <second-counter-vue></second-counter-vue>
     <button @click="addOne">Add 2</button>
     <new-counter-vue></new-counter-vue>
   </base-container>
@@ -10,12 +11,14 @@
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounterVue from './components/TheCounter.vue';
 import NewCounterVue from './components/NewCounter.vue';
+import SecondCounterVue from './components/SecondCounter.vue';
 
 export default {
   components: {
     BaseContainer,
     TheCounterVue,
-    NewCounterVue
+    NewCounterVue,
+    SecondCounterVue
   },
   methods: {
     addOne() {
