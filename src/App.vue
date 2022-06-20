@@ -2,7 +2,7 @@
   <base-container title="Vuex">
     <the-counter-vue></the-counter-vue>
     <second-counter-vue></second-counter-vue>
-    <button @click="addOne">Add 2</button>
+    <button @click="increment">Add 2</button>
     <new-counter-vue></new-counter-vue>
   </base-container>
 </template>
@@ -13,6 +13,7 @@ import TheCounterVue from './components/TheCounter.vue';
 import NewCounterVue from './components/NewCounter.vue';
 import SecondCounterVue from './components/SecondCounter.vue';
 
+import { mapActions } from 'vuex';
 export default {
   components: {
     BaseContainer,
@@ -21,9 +22,10 @@ export default {
     SecondCounterVue
   },
   methods: {
-    addOne() {
-      this.$store.dispatch('increment');
-    },
+    // addOne() {
+    //   this.$store.dispatch('increment');
+    // },
+    ...mapActions(['increment'])
   },
 };
 </script>
